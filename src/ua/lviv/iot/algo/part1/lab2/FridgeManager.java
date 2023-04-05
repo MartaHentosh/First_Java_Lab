@@ -1,5 +1,9 @@
 package ua.lviv.iot.algo.part1.lab2;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,7 +11,6 @@ import java.util.stream.Collectors;
 @Getter
 @AllArgsConstructor
 @ToString(callSuper = true)
-
 public class FridgeManager {
     private final List<Fridge> fridges = new LinkedList<>();
     public void addFridge(Fridge fridge) {
@@ -19,9 +22,9 @@ public class FridgeManager {
                 collect(Collectors.toList());
     }
     public List<Fridge> findFridgeWithBrand(String brand) {
-        return fridges.stream().
-                filter(fridge -> fridge.getBrand().equals(brand)).
-                collect(Collectors.toList());
+        return fridges.stream()
+                .filter(fridge -> fridge.getBrand().equals(brand))
+                .collect(Collectors.toList());
     }
     public static void main(String[] args) {
         FridgeManager fridgeManager = new FridgeManager();
