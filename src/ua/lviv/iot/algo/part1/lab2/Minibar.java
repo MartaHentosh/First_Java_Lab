@@ -1,5 +1,11 @@
 package ua.lviv.iot.algo.part1.lab2;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 @Setter
 @Getter
 @AllArgsConstructor
@@ -16,7 +22,6 @@ class Minibar extends Fridge{
     }
     @Override
     public double getMaxUsableCapacity(){
-
         return maxDrinksWeight * maxDrinksVolume;
     }
 }
