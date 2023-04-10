@@ -1,9 +1,7 @@
 package ua.lviv.iot.algo.part1.lab2;
 
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 class FridgeManagerTest {
     @Test
@@ -49,7 +47,7 @@ class FridgeManagerTest {
         fridgeManager.addFridge(new Minibar("MYSTERY","CS 15141 M", 46, 40, 40));
         fridgeManager.addFridge(new Minibar("Philco","PW8F", 21, 15, 15));
 
-        String expected = "FridgeManager(fridges=[FridgeCamera(brand=LG, model=GW-B509MUM, capacity=384, weight=2.0, energyClass=electric, numberOfCameras=2, numberOfShelves=500), FridgeCamera(brand=Samsung, model=MSK, capacity=300, weight=2.0, energyClass=electrical, numberOfCameras=3, numberOfShelves=400), WineFridge(brand=Whirlpool, model=FWC 455, capacity=70, weight=36.0, numberOfTemperatureZones=50), WineFridge(brand=Klarstein, model=ABC123, capacity=60, weight=26.0, numberOfTemperatureZones=40), Freezer(brand=Prime Technics, model=MRF-8050W, capacity=145, weight=120.0, freezerCapacity=120), Freezer(brand=Vivax, model=CFR-142, capacity=146, weight=120.0, freezerCapacity=120), Minibar(brand=MYSTERY, model=CS 15141 M, capacity=46, weight=40.0, refrigerantVolume=40), Minibar(brand=Philco, model=PW8F, capacity=21, weight=15.0, refrigerantVolume=15)])";
+        String expected = "FridgeManager(fridges=[FridgeCamera(super=Fridge(brand=LG, model=GW-B509MUM, capacity=384), entries=2, typeOfBelt=electric, speedOfBelt=2.5, maxSausageWeight=500.0), FridgeCamera(super=Fridge(brand=Samsung, model=MSK, capacity=300), entries=2, typeOfBelt=electrical, speedOfBelt=3.0, maxSausageWeight=400.0), WineFridge(super=Fridge(brand=Whirlpool, model=FWC 455, capacity=70), maxBottlesWeight=36.0, maxBottlesVolume=50.0), WineFridge(super=Fridge(brand=Klarstein, model=ABC123, capacity=60), maxBottlesWeight=26.0, maxBottlesVolume=40.0), Freezer(super=Fridge(brand=Prime Technics, model=MRF-8050W, capacity=145), maxIceWeight=120.0, maxIceVolume=120.0), Freezer(super=Fridge(brand=Vivax, model=CFR-142, capacity=146), maxIceWeight=120.0, maxIceVolume=120.0), Minibar(super=Fridge(brand=MYSTERY, model=CS 15141 M, capacity=46), maxDrinksWeight=40.0, maxDrinksVolume=40.0), Minibar(super=Fridge(brand=Philco, model=PW8F, capacity=21), maxDrinksWeight=15.0, maxDrinksVolume=15.0)])";
 
         assertEquals(expected, fridgeManager.toString());
     }
