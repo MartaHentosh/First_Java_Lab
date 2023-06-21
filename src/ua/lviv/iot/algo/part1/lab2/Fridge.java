@@ -14,5 +14,7 @@ abstract  class Fridge{
     protected String brand;
     protected String model;
     protected int capacity;
+    public abstract String getHeaders();
+    public abstract String toCSV();
     public abstract double getMaxUsableCapacity();
 }
