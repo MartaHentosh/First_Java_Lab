@@ -10,17 +10,32 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
-class WineFridge extends Fridge{
+public class WineFridge extends Fridge {
+    public static final String HEADERS = "brand,model,capacity,"
+            + "maxBottlesWeight,maxBottlesVolume";
+    public static final String Value = "Whirlpool,FWC 455,70,36,50";
     private double maxBottlesWeight;
     private double maxBottlesVolume;
-    public  WineFridge(String brand, String model,int capacity,
-                       int maxBottlesWeight, int maxBottlesVolume){
-        super(brand,model,capacity);
+
+    public WineFridge(final String brand, final String model,
+                      final int capacity,
+                      final int maxBottlesWeight,
+                      final int maxBottlesVolume) {
+        super(brand, model, capacity);
         this.maxBottlesWeight = maxBottlesWeight;
         this.maxBottlesVolume = maxBottlesVolume;
     }
+
     @Override
     public double getMaxUsableCapacity() {
         return maxBottlesVolume * maxBottlesWeight;
+    }
+
+    public String getHeaders() {
+        return HEADERS;
+    }
+
+    public String toCSV() {
+        return Value;
     }
 }
