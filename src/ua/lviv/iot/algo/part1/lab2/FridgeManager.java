@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -26,7 +27,7 @@ public class FridgeManager {
                 .filter(fridge -> fridge.getBrand().equals(brand))
                 .collect(Collectors.toList());
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         FridgeManager fridgeManager = new FridgeManager();
         fridgeManager.addFridge(new FridgeCamera("LG","GW-B509MUM", 384, 2, "electric", 2.5, 500));
         fridgeManager.addFridge(new FridgeCamera("Samsung","MSK",300,2,"electrical",3,400));
@@ -51,5 +52,7 @@ public class FridgeManager {
         for (Fridge fridge : FridgeBrand) {
             System.out.println(fridge);
         }
+        FridgesWriter fridgesWriter = new FridgesWriter();
+        fridgesWriter.writeToFile(fridgeManager.getFridges());
     }
 }
