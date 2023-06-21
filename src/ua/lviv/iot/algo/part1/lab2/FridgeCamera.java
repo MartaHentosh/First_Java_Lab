@@ -10,7 +10,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString(callSuper = true)
+public
 class FridgeCamera extends Fridge{
+    public static final String HEADERS = "brand, model, capacity, entries, typeOfBelt, speedOfBelt, maxSausageWeight" ;
+    public static final String value = "LG, GW-B509MUM, 384, 2, electric, 2.5, 500" ;
     private int entries;
     private String typeOfBelt ;
     private double speedOfBelt;
@@ -24,6 +27,17 @@ class FridgeCamera extends Fridge{
         this.speedOfBelt = speedOfBelt;
         this.maxSausageWeight = maxSausageWeight;
     }
+
+    @Override
+    public String getHeaders() {
+        return HEADERS;
+    }
+
+    @Override
+    public String toCSV() {
+        return value;
+    }
+
     @Override
     public double getMaxUsableCapacity() {
         return maxSausageWeight / VOLUME_PER_KILOGRAM;
